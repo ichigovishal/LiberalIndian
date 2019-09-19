@@ -1,0 +1,26 @@
+{% load static %}
+{% load compress %}
+<html>
+
+    <head>
+     <title>Page Not Found. 404</title>
+    <link rel = "shortcut icon" href = "{% static 'base/image/title.png' %}" type = "image/x-icon">
+        {% compress css file callder %}
+        <link href="{% static 'css/main.scss' %}" type="text/x-scss" rel="stylesheet">
+        {% endcompress %}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    </head>
+   
+    <body>
+        <div class="errorPage">
+            <div class="errorPage__body">
+                    <div class="errorPage__wrapper">
+                        <img class="errorPage__image" src="{% static 'error/icons/sad.svg' %}" height="300px" width="300px"><br>
+                        Page Not Found. 404
+                    </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,10 @@
+{% autoescape off %}
+We got contacted by {{name}} at {{email}} and contact person is {{ member|yesno:"already,not,maybe" }} a member,
+His/ her message is.
+
+"{{message}}"
+
+Please replay as soon as possible.
+Thank you,
+Admin
+{% endautoescape %}

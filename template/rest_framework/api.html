@@ -1,0 +1,55 @@
+{% extends "rest_framework/base.html" %}
+{% load static %}
+{% block title %}
+ Liberal Indain API
+
+{% endblock %}
+{% block style %}
+<link rel="shortcut icon" href = "{% static 'basic/image/title.png' %}" type = "image/x-icon"> 
+{{block.super}}
+<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700i&display=swap" rel="stylesheet">
+<style>
+
+.logo__container{
+    all: unset;
+    display: inline-block;
+    margin: 0;
+    padding: 7px 0;
+    height: auto;
+    width: auto;
+    position: relative;
+    cursor: pointer;
+}
+.bar__logo{ 
+    display: inline-block;
+    background-size: cover;
+    background-position: top;
+    height: 60px;
+    z-index: inherit;
+
+
+}
+.apiTitle{
+display: inline-block;
+font-family: 'Roboto Condensed', sans-serif;
+background-color: #a2414e;
+transform: translate(-10px , -50%) rotate(270deg) ;
+letter-spacing: 1.5px;
+color: rgba(255, 255, 255, 0.767);
+padding: 10px 17px;
+border-bottom-left-radius: 2px; 
+border-bottom-right-radius: 2px;
+position: absolute;
+left: 100%;
+top: 50%;
+font-weight: 700;
+}
+
+</style>
+{% endblock style %}
+{% block bodyclass %}
+body
+{% endblock %}
+{% block branding %}
+<a class="logo__container" href="{% url 'home:home' %}"> <img class="bar__logo" src="{% static 'basic/image/logo.png' %}"><span class="apiTitle">API</span></a>
+{% endblock %}

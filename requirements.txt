@@ -1,0 +1,16 @@
+certifi==2019.6.16
+chardet==3.0.4
+Django==2.2.1
+django-appconf==1.0.3
+django-compressor==2.3
+django-libsass==0.7
+djangorestframework==3.10.1
+idna==2.8
+libsass==0.19.2
+pytz==2019.1
+requests==2.22.0
+rjsmin==1.1.0
+six==1.12.0
+sqlparse==0.3.0
+urllib3==1.25.3
+virtualenv==16.4.3

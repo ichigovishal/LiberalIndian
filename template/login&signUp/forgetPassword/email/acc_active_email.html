@@ -1,0 +1,5 @@
+{% autoescape off %}
+Hi {{ user }},
+Please click on the link to change your password,
+http://{{ domain }}{% url 'login&signUp:forgetPassword'%}?a={{uid}}&b={{token}}&next={{next}}&type=change-password#
+{% endautoescape %}

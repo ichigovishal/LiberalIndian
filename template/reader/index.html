@@ -1,0 +1,87 @@
+{% extends "basic/index.html" %}
+{% block body %}
+<script>
+    var csrfToken = '{{ csrf_token }}';
+    var is_user_authenticated  = '{{user.is_authenticated }}';
+    var login_redirect = "{% url 'login&signUp:log' slug='login' %}?next={{request.get_full_path|urlencode}}#" 
+
+</script>
+        <div class="displayPage__buttonBlock"><button class="displayPage__buttonBlock--btn1" onclick="createDiscussTag()"><span></span></button><button class="displayPage__buttonBlock--btn2" onclick="scrollToTop()"></button></div>
+        <div class="displayPage__container">
+            <div class="displayPage__popup"></div>
+                    <div class="displayPage__body">
+                            <div class="displayPage__wrapper">
+                                    <div class="displayPage__intro">
+                                            <h1 class="displayPage__heading">{{Article.title}}.</h1>
+                                            <span class="displayPage__divider"></span>
+                                          <div class="displayPage__authorDetail">
+                                            <div class="displayPage__author">
+                                                <img src="/media/{{Article.author.profile}}" class="displayPage__author--image">
+                                                <h3 class="displayPage__author--name">{{Article.author}}</h3>
+                                            </div>
+                                            <div class="displayPage__articleDetail">
+                                                <div class="displayPage__aricleDetail--date">JUNE 23, 2019 22:47 IST</div>
+                                                <div class="displayPage__aricleDetail--update">UPDATED: JUNE 26, 2019 21:42 IST</div>
+                                          </div>
+                                        </div>
+                                    </div>
+                                    <div class="displayPage__article" primaryType='article' primaryId='{{Article.article_id}}' tag='{{ Article.search_tag.all|join:", " }}, ' >
+                                        {{Article.main_data_display| safe}}
+                                   </div>
+                            </div>
+                <div class="mainDiscussion">
+                    <div class="mainDiscussion__wrapper">
+                        <div class="mainDiscussion__editor--wrapper">
+                            <div class="discuss__nesting mainDiscussion__intro mainDiscussion__editor">                  
+                                <div><span class="discuss__icon mainDiscussion__editor--icon"></span>&ensp;<span class="mainDiscussion__intro--mainHeading">Editor</span>&ensp;<span class="discuss__icon mainDiscussion__editor--icon"></span>
+                                    <br>
+                                    <span class="discuss__intro mainDiscussion__intro--subHeading">Creditor with editor.</span>
+                                </div>
+                                <div></div>
+                            </div>
+                        <div class="mainDiscussion__editor--nesting" style="cursor: context-menu;">                  
+                                <div><span class="discuss__icon mainDiscussion__icon"></span>&ensp;<span class="mainDiscussion__mainHeading mainDiscussion__editor--mainHeading"  id='editor-tag'>ipsum dolor.</span>&ensp;<span class="discuss__icon mainDiscussion__icon"></span>
+                                    <br>
+                                    <span class="discuss__intro mainDiscussion__subHeading mainDiscussion__editor--subHeading" contenteditable="true" id='editor-Heading'>Lorem ipsum dolor sit amet consectetur.</span>
+                                    <textarea class="mainDiscussion__content mainDiscussion__editor--discordEditor" contenteditable="true" id='editor-content' required='required' placeholder="Write here.."></textarea>
+                                </div><br>
+
+                                    <div class="mainDiscussion__editor--buttonHolder"><button class="button mainDiscussion__editor--button" type="submit" onclick="createDiscord()">Submit</button></div>
+                            </div>
+                        </div>
+                        <div class="mainDiscussion__display">
+                                <div class="discuss__nesting mainDiscussion__intro">                  
+                                        <div><span class="discuss__icon mainDiscussion__intro--icon"></span>&ensp;<span class="mainDiscussion__intro--mainHeading">Discode</span>&ensp;<span class="discuss__icon mainDiscussion__intro--icon"></span>
+                                            <br>
+                                            <span class="discuss__intro mainDiscussion__intro--subHeading">Sharing is caring.</span>
+                                        </div>
+                                        <div></div>
+                                    </div>
+
+
+                                    <!-- for reference only -->
+
+                                    <!-- <div class="discuss__nesting mainDiscussion__nesting">                  
+                                        <div><span class="discuss__icon mainDiscussion__icon"></span>&ensp;<span class="mainDiscussion__mainHeading">ipsum dolor.</span>&ensp;<span class="discuss__icon mainDiscussion__icon"></span>
+                                            <br>
+                                            <a class="mainDiscussion__subHeadingLink" href="#"><span class="discuss__intro mainDiscussion__subHeading">Lorem ipsum dolor sit amet consectetur.</span></a>
+                                            <div class="mainDiscussion__content">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odio aut sapiente atque magnam nobis minima architecto eaque, reiciendis sed odit.</div>
+                                        </div>
+                                        <div class="mainDiscussion__author">by: Lorem ipsum dolor.</div>
+                                    </div> -->
+                                    
+                        </div>
+
+                    </div>
+                    <div class="mainDiscussion__buttonBlock"><button class="btn" id='moreDiscord' type="button">Load More</button></div>
+
+                </div>
+            </div>
+        </div>
+    
+{% endblock %}
+{% block body_javascript %}
+{% load static %}
+<script src="{% static 'reader/javascript/script.js' %}" type="text/javascript"></script>
+{% endblock %}
+

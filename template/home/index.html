@@ -1,0 +1,134 @@
+{% extends "basic/index.html" %}
+{% block body %}
+<script>
+    var csrfToken
+    csrfToken = '{{csrf_token}}';
+</script>
+        <div class="intro__box page" id="introduction">
+            <div class="intro__body">
+                <div class="intro__heading">
+                    <h1>Contrary</h1>
+                    <h1>standard</h1>
+                    <h1>chunk</h1>
+                </div>
+            </div>
+        </div>
+        <div class="reader page" id="articles">
+            <div class="reader__body--popup popUp">
+                <div class="reader__body--popup-container popUp__container">
+                    <span><span class="reader__body--icon"></span><h1 class="reader__body--heading reader__body--popup-heading">our Best article</h1><span class="reader__body--icon"></span><br /></span>
+                </div>
+            </div>
+
+
+            <div class="reader__block">
+                    {%  for item in Article|slice:":3" %}
+                    <a class="contentLink" href="{% url 'reader:reader' slug=item.article_id %}">
+                    <div class='reader__body reader__body--{{ forloop.counter }}''>
+                            <div class="reader__body--articleTitle">
+                                <span class="reader__body--icon"></span><h1 class="reader__body--heading">{{item.title|truncatechars:16}}</h1><span class="reader__body--icon"></span>
+                            </div>
+                            <div class="reader__body--article">{{item.main_data|truncatechars:455}}</div>
+                        </div>
+                    </a>
+                    {% endfor %}
+
+                        {% comment %} <div class="reader__body reader__body--2">
+                                <div class="reader__body--articleTitle">
+                                        <span class="reader__body--icon"></span><h1 class="reader__body--heading">What is Lorem Ipsum?</h1><span class="reader__body--icon"></span>
+                                    </div>
+                                    <div class="reader__body--article">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maxime, quia? Minima sit sint aliquam ab, nobis quia voluptatem. Quae, a amet. Molestias hic sunt quaerat, ut accusantium dolor eos nisi aperiam vero distinctio assumenda. Quas quibusdam nobis natus tempora illo nemo cupiditate provident, nulla ratione fugiat a deleniti consequatur aliquid assumenda ut eius architecto deserunt dignissimos optio voluptatem velit laborum?</div>
+                        </div>
+                        <div class="reader__body reader__body--3">
+                                <div class="reader__body--articleTitle">
+                                        <span class="reader__body--icon"></span><h1 class="reader__body--heading">What is Lorem Ipsum?</h1><span class="reader__body--icon"></span>
+                                </div>
+                                <div class="reader__body--article">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque laboriosam illo necessitatibus natus accusamus, alias consequuntur amet dolor nemo in asperiores nulla soluta consequatur. Est provident aperiam dolore nemo atque voluptatem consectetur deleniti blanditiis alias! Cum ullam omnis sit aspernatur in amet eius fuga reprehenderit necessitatibus dolor tempora itaque, consequuntur, doloribus, rerum laboriosam asperiores!</div>
+                        </div> {% endcomment %}
+            </div>
+            <div class="reader__indicater">
+                <label class="reader__indicater__label reader__indicater__label--1">
+                        <input type="checkbox" class="reader__indicater__checkbox reader__indicater__checkbox--1" value="1">
+                        <span class="reader__indicater__dot--1"></span>
+                </label>
+                <label class="reader__indicater__label reader__indicater__label--2">
+                        <input type="checkbox" class="reader__indicater__checkbox reader__indicater__checkbox--2" value="2">
+                        <span class="reader__indicater__dot--2"></span>
+                </label>
+                <label class="reader__indicater__label reader__indicater__label--3">
+                        <input type="checkbox" class="reader__indicater__checkbox reader__indicater__checkbox--3" value="3">
+                        <span class="reader__indicater__dot--3"></span>
+                </label>
+            </div>
+        </div>
+        <div class="discuss page" id="discords">
+                <div class="discuss__nesting discuss__head">
+                        <div><span class="discuss__icon discuss__head--icon"></span>&ensp;<span class="discuss__head--mainHeading">Best Discode</span>&ensp;<span class="discuss__icon discuss__head--icon"></span>
+                        </div>  
+                        <div></div>
+                    </div>
+                <div class="discuss__wrapper1">
+                {% for item in Discord|slice:":8" %}
+                <a class="contentLink" href="{% url 'NestedDiscord:discord' slug=item.discord_id %}">
+                        <div class="discuss__nesting1">
+                            <div><span class="discuss__icon"></span>&ensp;{{item.title|truncatechars:10}}.&ensp;<span class="discuss__icon"></span>
+                                <br>
+                                <span class="discuss__intro">{{item.line|truncatechars:38}}</span>
+                            </div>
+                            <div>by: {{item.author}}</div>
+                        
+                        </div>
+                    </a>
+                    
+                {% endfor %}
+                        {% comment %}
+                        <div class="discuss__nesting">
+                            <div><span class="discuss__icon"></span>&ensp;ipsum dolor.&ensp;<span class="discuss__icon"></span>
+                                <br>
+                                <span class="discuss__intro">Lorem ipsum dolor sit amet consectetur.</span>
+                            </div>
+                                <div>by: Lorem ipsum dolor.</div>
+                        </div>
+                        {% endcomment %}
+                    </div>
+        </div>
+            <div class="contactUs page" id="contact-us">
+                <div class="contactUs__container">
+                    <div class="contactUs__direct">
+                        <div class="popup contactUs__popup">
+                            <div class="popup__container contactUs__popup--container"><h1>We will contact you</h1></div>
+                        </div>
+                        <h1 class="contactUs__heading">get in touch</h1>
+                        <p class="contactUs__subheading">Please fill out the quick form and we will be in tounch with lightening speed.</p>
+                        <input type="text" class="input contactUs__input contactUs__input--name" name="name" placeholder="name" id="contactUs__name">
+                        <br>
+                        <input type="email" class="input contactUs__input contactUs__input--email" name="email" placeholder="enter your email" id="contactUs__email">
+                        <br>
+                        <textarea type="text" class="input contactUs__input contactUs__input--text" name="text" placeholder="tell us about it"  id="contactUs__detail"></textarea>
+                        <br>
+                        <button class="btn contactUs__button">submit</button>
+
+                    </div><br class="contactUs__mainBreaker">
+                    <div class="contactUs__detail">
+                        <h1 class="contactUs__heading contactUs__heading-md noMargin">connect with us:</h1>
+                        <p class="contactUs__email__holder contactUs__subheading contactUs__subheading-md noMargin">For support or any responce<br>Email us at <span class="contactUs__email" type="email">ichigovishal@gmail.com</span></p>
+                        <div class="contactUs__address">
+                            <h1 class="contactUs__heading contactUs__heading-sm">India</h1>
+                            <p>
+                                22/117,<br>
+                                west patel nagar Pincode: 208027<br>
+                                Delhi
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+{% endblock %}
+{% block body_javascript %}
+{% load static %}
+<script src="{% static 'home/javascript/script.js' %}"  type="text/javascript"></script>
+{% endblock %}
+

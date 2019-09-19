@@ -1,0 +1,244 @@
+{% load static %}
+{% load compress %}
+<html>
+
+    <head>
+    <title> Liberal Indain</title>
+    <link rel="shortcut icon" href = "{% static 'basic/image/title.png' %}" type = "image/x-icon"> 
+        {% compress css file callder %}
+        <link href="{% static 'css/main.scss' %}" type="text/x-scss" rel="stylesheet">
+        {% endcompress %}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        {% if error == 'invalid' %}
+        <style>
+            #login__password,
+            #login__password:focus{
+                border: 1px red solid;
+
+            }
+            #login__email,
+            #login__email:focus{
+                border: 1px red solid;
+
+            }
+        </style>
+        {% elif error == 'already_exits' %}
+        <style>
+             #signUp__email,
+            #signUp__email:focus{
+                border: 1px red solid;
+
+            }
+        </style>
+        {% endif %}
+        <script>
+        var checkEmail;
+        checkEmail ="{% url 'login&signUp:checkEmail' %}"
+         var csrfToken;
+        csrfToken = '{{csrf_token}}'
+        </script>
+
+    </head>
+    <body>
+        <div class="loginSignUp">
+            <div class="loginSignUp__body">
+                <div class="loginSignUp__wrapper">
+                        {% if type == 'verify' %}
+                    <div class="loginSignUp__login">
+                            <form action="{% url 'login&signUp:forgetPassword' %}?next={{url}}&type=none#" method="POST">
+                                    {% csrf_token %}
+                                    <div class="loginSignUp__logoContainer">
+                                        <img class="loginSignUp__logo" src="{% static 'login&signUP/image/logo.png' %}"><img><br />
+                                    </div>
+                                    <span class="loginSignUp__heading loginSignUp__resetPassword--heading">Verify Email</span><br />
+                                    <span class="loginSignUp__subHeading">enter your email</span><br />
+                                    <span class="loginSignUp__divider"></span>
+                                    <div class="loginSignUp__login--username loginSignUp__inputBox">
+                                        <input placeholder="Email" id="login__email" name="email" class="loginSignUp__input loginSignUp__input--email" type="email" onfocusin = "inputFocusInUser()" onfocusout="inputFocusOutUser()">
+                                        <label class="loginSignUp__label">Email</label><br>
+                                <span class="error" aria-live="polite"></span>
+                
+                                    </div><br />
+                                       <div class="loginSignUp__login--buttonBlock">
+
+                                                <button class="btn loginSignUp__submit" name="type" value="verify" type="submit">submit</button>
+                                            </div>
+                                  
+                                </form>
+                    </div>
+                    {% endif %}
+                    {% if type == 'change_password' %}
+                    <div class="loginSignUp__signUp">
+                        <form action="{% url 'login&signUp:forgetPasswordSet' %}?a={{a}}&b={{b}}&next={{url}}#" method="POST">
+                                {% csrf_token %}
+                            <div class="loginSignUp__logoContainer">
+                                <img class="loginSignUp__logo" src="{% static 'login&signUP/image/logo.png' %}"><img><br />
+                            </div>
+                            <span class="loginSignUp__heading loginSignUp__resetPassword--heading">Set Password</span><br />
+                            <span class="loginSignUp__subHeading">enter your password</span><br />
+                            <span class="loginSignUp__divider"></span>
+                            <div class="loginSignUp__signUp--password loginSignUp__inputBox">
+                                <input placeholder="password" name="new_password" class="loginSignUp__input" type="password" onfocusin = "inputFocusInPassword1()"  minlength="8" onfocusout="inputFocusOutPassword1()">
+                                <label class="loginSignUp__label">password</label><br>
+                                <span class="error" aria-live="polite"></span>
+                            </div><br />
+                            <div class="loginSignUp__signUp--password loginSignUp__inputBox">
+                                <input placeholder="confirm password"  minlength="8" name="confirm_password" class="loginSignUp__input" type="password" onfocusin = "inputFocusInPassword3()" onfocusout="inputFocusOutPassword3()">
+                                <label class="loginSignUp__label">confirm password</label><br>
+                                <span class="error" aria-live="polite"></span>
+                            </div><br />
+                            <div class="loginSignUp__signUp--buttonBlock">
+                                <button class="btn loginSignUp__submit" type="submit">Submit</button>
+                            </div>
+                        </div>
+                        </form>
+               
+                </div>
+                {% endif %}
+                 {% if type == 'confirm_email' %}
+                 <div class="loginSignUp__confirmEmail">
+                 <div class="loginSignUp__confirmEmail--container">
+                 {{message|linebreaksbr}}
+                 </div>
+                 </div>
+                 {% endif %}
+            </div>
+
+        </div>
+            {% compress js inline %}
+        <script>
+        // Global variables
+var input = document.querySelectorAll(".loginSignUp__input");
+
+// Functions
+formValidityEmail = function(){
+        // check email
+    let email= input[0];
+    let email_error = document.querySelectorAll('.error')[0];
+    email.addEventListener("focusout", function (event) {
+    // Each time the user types something, we check if the
+    // email field is valid.
+    if (event.target.validity.valid) {
+        var formData = new FormData();
+        formData.append('email', event.target.value);
+        var req = new XMLHttpRequest(); 
+        req.open("POST", checkEmail);
+        req.setRequestHeader('X-CSRFToken', csrfToken);
+        req.setRequestHeader('enctype', "multipart/form-data");
+        req .withCredentials = true;
+        req.onload = function(event) { 
+            let data = JSON.parse(event.target.responseText);
+            if(data.valid){
+                email_error.innerHTML = ""; // Reset the content of the message
+                email_error.className = "error"; // Reset the visual state of the message
+
+            }
+            else if(!data.valid){
+                email_error.innerHTML = "Email does not exits";
+                email_error.className = "error active";
+
+            }
+         };
+        req.send(formData);
+     
+    }
+    else if(!event.target.validity.valid) {
+    
+        // If the field is not valid, we display a custom
+        // error message.
+        email_error.innerHTML = "Enter Correct Email";
+        email_error.className = "error active";
+        // And we prevent the form from being sent by canceling the event
+        event.preventDefault();
+      }
+  }, false);
+}
+formValidityPassword = function () {
+
+  // password
+  let password=input[0];
+   let password_error = document.querySelectorAll('.error')[0];
+   password.addEventListener("focusout", function (event) {
+       // Each time the user types something, we check if the
+       // email field is valid.
+       if (event.target.validity.valid) {
+         password_error.innerHTML = "";
+         password_error.className = "error";
+        
+       }
+       else if(!event.target.validity.valid) {
+       
+           // If the field is not valid, we display a custom
+           // error message.
+           password_error.innerHTML = "Minimum Length 8 digit is required";
+           password_error.className = "error active";
+           // And we prevent the form from being sent by canceling the event
+           event.preventDefault();
+         }
+     }, false);
+    // confirm password
+    let confirm_password=input[1];
+   
+  let confirm_password_error = document.querySelectorAll('.error')[1];
+  confirm_password.addEventListener("focusout", function (event) {
+      // Each time the user types something, we check if the
+      // email field is valid.
+      event.target.pattern = input[0].value;
+      if (event.target.validity.valid) {
+        confirm_password_error.innerHTML = "";
+        confirm_password_error.className = "error";
+       
+      }
+      else if(!event.target.validity.valid) {
+      
+          // If the field is not valid, we display a custom
+          // error message.
+          confirm_password_error.innerHTML = "Password Does Not Match";
+          confirm_password_error.className = "error active";
+          // And we prevent the form from being sent by canceling the event
+          event.preventDefault();
+        }
+    }, false);
+    
+};
+
+
+         if(input.length == 1){
+
+        function inputFocusInUser() {
+            input[0].placeholder = "";
+        }
+        function inputFocusOutUser() {
+            input[0].placeholder = "email";
+        }
+        
+         formValidityEmail();
+    }
+    else if(input.length == 2) {
+        function inputFocusInPassword1() {
+            input[0].placeholder = "";
+        }
+        function inputFocusOutPassword1() {
+            input[0].placeholder = "password";
+        }
+        function inputFocusInPassword3() {
+            input[1].placeholder = "";
+        }
+        function inputFocusOutPassword3() {
+            input[1].placeholder = "confirm password";
+        }
+        
+       formValidityPassword();
+       
+    }          
+    </script>
+    {% endcompress %}
+
+    </body>
+</html>
+
+
+
+

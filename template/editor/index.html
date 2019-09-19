@@ -1,0 +1,84 @@
+{% load static %}
+{% load compress %}
+<html>
+    <head>
+    <title>Liberal Indain</title>
+    <link rel="shortcut icon" href = "{% static 'basic/image/title.png' %}" type = "image/x-icon"> 
+            {% compress css file callder %}
+        <link href="{% static 'css/main.scss' %}" type="text/x-scss" rel="stylesheet">
+        {% endcompress %}
+        <script>
+            var latest_image_saved;
+            latest_image_saved = '{{Saved.image}}'
+            var csrfToken = '{{ csrf_token }}';
+        </script>
+        {% compress js %}
+        <script src="{% static 'basic/javascript/preLoader.js' %}"></script>
+       
+        {% endcompress %}
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    </head>
+    
+    <body style="overflow: hidden;" data-media-url="{% get_media_prefix %}">
+       <div class="editor">
+            <form method="POST" name="editorForm">
+                    {% csrf_token %}
+        <div class="popup editor__headingPopup">
+            <div class="popup__container editor__headingPopup--container">
+                <span class="editor__headingPopup--heading">your article title</span><br />
+                <span class="editor__headingPopup--divider"></span><br />
+                <input type="text" class="editor__headingPopup--input" required name="title"><br />
+                <span class="editor__headingPopup--heading">your search tags</span><br />
+                <span class="editor__headingPopup--divider"></span><br />
+                <input type="text" class="editor__headingPopup--input" name="search_tag" required placeholder="Tags"><br />
+                <input type="text" class="editor__headingPopup--input" name="tag_description" placeholder="Tag Description -- Optional"><br />
+                
+                <div class="editor__headingPopup--buttonBlock">
+                        
+                        <button class="editor__button" type="button" onclick="formSubmin()">Submit</button>
+                        <button class="editor__button"  type="button" onclick="publishCloseFun()">close</button>
+                </div>
+
+            </div>
+        </div>
+         
+        <div class="editor__tool--wrapper">
+            <div class="editor__tool">
+                <!-- This is where tool is -->
+                <div class="toolLayout__cell  editorImage">
+                   
+
+                </div>
+                
+            </div>
+          
+            <div class="editor__toolBackground"></div>
+        </div>
+        <div class="editor__wrapper">
+            <div class="editor__toolbar">
+                 <div class="editor__toolbtn-4"><button class="editor__tool-label editor__tool-label-4" type="button" onclick="save_and_back()"><span></span></button></div>
+                  <div class="editor__toolbtn-5"><button class="editor__tool-label editor__tool-label-5" type="button" onclick="publishFun()"><span></span></button></div>
+                <div class="editor__toolbtn editor__toolbtn-1"><button class="editor__tool-label editor__tool-label-1" type="button"><span></span></button></div>
+                <div class="editor__toolbtn editor__toolbtn-2"><button class="editor__tool-label editor__tool-label-2" type="button"><span></span></button></div>
+                <div class="editor__toolbtn editor__toolbtn-3"><button class="editor__tool-label editor__tool-label-3" type="button"><span></span></button></div>
+            </div>
+            <div>
+                <div class="editor__body">
+                    <input class="editor__body--pseudoInput"  name="main_data" required hidden>
+                    <input class="editor__body--pseudoInput"  name="main_data_display" required hidden>
+                    <div class="document__body editor__body--display"  contentEditable="true"> {{Saved.main_data|safe}}</div>
+                </div>
+            </div>
+        </div>
+        </form>
+       </div>
+        {% compress js %}
+        <script src="{% static 'basic/javascript/cliper.js' %}"></script>
+        <script src="{% static 'editor/javascript/editor.js' %}"></script>
+        {% endcompress %}
+       
+    </body>
+
+</html>
