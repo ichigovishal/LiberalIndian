@@ -1,0 +1,281 @@
+
+.reader{
+    &{
+        text-align: center;
+        overflow: hidden;
+        height: 130vh;
+        width: 100vw;
+        position: relative;
+    }
+    &::-webkit-scrollbar {
+        width: inherit;
+   }
+
+   &::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px transparent;
+   }
+
+   &::-webkit-scrollbar-thumb {
+    width: 3px;
+    background-color: rgba(0, 0, 0, 0.466);
+    outline: 1px solid slategrey;
+    border-radius: 20px;
+  }
+
+    &__block{
+        width: 90vw;
+        height: 98%;
+        display: inline-block;
+        position: relative;
+        background-color: $officalLeafyBackground;
+        
+        
+
+    }
+    &__body{
+        &{
+            text-align: center;
+            width: 31%;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 15px 5px;
+            font-family: $Raleway;
+            cursor: pointer;
+        }
+        &--popup{
+            &{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                z-index: 850; 
+            }
+            &::before{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                         
+            }
+            &-container{
+                &{
+                    display: block;
+                    text-align: center;
+                    padding: 3rem 1rem;
+                }
+                & span{
+                    white-space: nowrap;
+                }
+            
+                
+            }
+            &-heading{
+                margin: 0 10px;
+            }
+            @media only screen and (max-width: 800px) {
+                &-container{
+                    width: 85vw;
+                }
+            }
+            @media only screen and (max-width: 415px) {
+                &-heading{
+                    font-size: 3rem;
+                    
+                }
+            }
+            
+                
+        }
+        &--1{
+            left: 0.33333333333;
+
+        }
+        &--2{
+            left: 33.3333333333%;
+
+        }
+        &--3{
+
+            left:66.3333333333%;                      
+        }
+        // reader
+        &--articleTitle{
+            display: inline-block;
+            box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, 0.2);
+            color: white;
+            background-color: rgba(255, 255, 255, 0.192);
+            text-align: center;
+            border-radius: 7px;
+            font-size: 1rem;
+            margin: 5vh 0;
+            font-family: inherit;
+            white-space: nowrap;
+            padding: 3rem .3rem;
+  
+        }
+        &--heading{
+            display: inline;
+            font-family: inherit;
+            letter-spacing: 0;
+            font-weight: 700;
+            white-space: unset;
+            font-size: 1.7vw;
+            
+                
+        }
+        &--icon{
+            display: inline-block;
+            background-image: url(static('reader/icons/innovation.svg'));
+            height: 4rem;
+            width: 4rem;
+            
+
+        }
+        &--article{
+            display: inline-block;
+            box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, 0.2);
+            color: white;
+            background-color: rgba(255, 255, 255, 0.192);
+            text-align: center;
+            border-radius: 7px;
+            padding: 10px;
+        }
+
+    }
+    // mobile
+    @media only screen and (max-width: 1277px) {
+        &{
+            overflow-x: scroll;;
+        }
+        &__body{
+            &--articleTitle{
+                width: 100%;
+            }
+            &--heading{
+                font-size: 2.7vw
+            }
+            &--icon{
+                height: 9vmin;
+                width: 9vmin;
+            }
+            &--article{
+                width: 100%;
+                font-size: 3vmin;
+            }
+        }
+        &__block{
+            width: 150vw;
+            // transform: translateX(-33.33333000000%)
+        }
+    }
+    @media only screen and (max-width: 800px) {
+        
+        &__body{
+            &--articleTitle{
+                width: 100%;
+            }
+            &--heading{
+                font-size: 5.5vmin
+            }
+            &--icon{
+                height: 9vmin;
+                width: 9vmin;
+            }
+            &--article{
+                width: 100%;
+                font-size: 3vmin;
+            }
+        }
+        &__block{
+            width: 300vw;
+            // transform: translateX(-33.33333000000%)
+        }
+    }
+    @media only screen and (max-width: 415px) {
+        &{
+            height: 108vh;
+        }
+        &__body{
+          
+            &--articleTitle{
+                width: 100%;
+            }
+            &--heading{
+                font-size: 5.5vmin
+            }
+            &--icon{
+                height: 9vmin;
+                width: 9vmin;
+            }
+            &--article{
+                width: 100%;
+                font-size: 4.5vmin;
+            }
+        }
+        &__block{
+            width: 300vw;
+            // transform: translateX(-33.33333000000%)
+        }
+    }
+
+
+}
+
+
+
+.reader__indicater{
+    
+    &{
+        display: none;
+        margin-top: 4rem;
+        
+    }
+
+    &__label{
+        position: relative;
+    }
+
+    &__checkbox{
+        opacity: 0;
+    
+    }
+
+    & span{
+        display: inline-block;
+        position: relative;
+        background-color: rgb(80, 79, 70);
+        height: 15px;
+        width: 15px;
+        border-radius: 50%;
+        top: -2px;
+        right: 18px;
+    }
+
+     & span:hover{
+        background-color: cadetblue;
+    }
+
+    & span:after{
+              
+        position: relative;
+        background-color: rgb(255, 255, 255);
+        height: 8px;
+        width: 8px;
+        border-radius: 50%;
+        top: 3px;
+        left: 3.5px;
+    }
+    &__checkbox--1:checked ~ &__dot--1:after{
+        display: block; 
+        content: "";
+        
+    }
+    &__checkbox--2:checked ~ &__dot--2:after{
+        display: block; 
+        content: "";
+    }
+    &__checkbox--3:checked ~ &__dot--3:after{
+        display: block; 
+        content: "";
+    }
+     
+}

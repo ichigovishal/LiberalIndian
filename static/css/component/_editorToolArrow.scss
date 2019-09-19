@@ -1,0 +1,58 @@
+.toolArrow{
+    &{
+        padding: 3rem;
+        text-align: center;
+
+    }
+    & > span{
+        display: block;
+        text-align: left;
+    }
+    &__arrange{
+        display: inline-block;
+        margin: 10px 0;
+        text-align: left;
+
+
+    }
+    &__iconBtn{
+        &,
+        &:hover,
+        &:active{
+            margin: 0.5rem;
+            background-color: rgb(46, 45, 45);
+            padding: 5px;
+            border: solid 1px rgb(37, 37, 37);
+            
+        }
+        &:hover{
+            background-color: rgb(65, 65, 65);
+            
+        }
+        &:active{
+            border: solid 2px black; 
+            
+        }
+
+    }
+    &__icon{
+        display: inline-block;
+        height: 25px;
+        width: 25px;
+        background-size: contain;
+        background-position: center;
+  
+    }
+    &__icon-center{
+        background-image: url(static('editor/icons/arrow/center.svg'))
+    }
+    &__icon-left{
+        background-image: url(static("editor/icons/arrow/left1.svg"))
+    }
+    &__icon-right{
+        background-image: url(static("editor/icons/arrow/right.svg"))
+    }
+    &__icon-justified{
+        background-image: url(static("editor/icons/arrow/justify.svg"))
+    }
+}

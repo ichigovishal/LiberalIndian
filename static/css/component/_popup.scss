@@ -1,0 +1,45 @@
+.popup{
+    &{
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+    padding: 0 5px;   
+    background-color: $officalLeafyBackground;
+    text-align: center;
+    }
+    &__container{
+        display: inherit;
+        width: 100%;
+        width: 40vw;
+        background-color: $officalElementBackgroundDark;
+        color: white;
+        border-radius: 10px;
+    }
+    
+}
+.popup::before{
+    display: inherit;
+    content: "";
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -4;
+    height: 100vh;
+    width: 100vw;
+    background-color: $officalBackground;
+}
+    // For mobile
+    @media only screen and (max-width: 415px) {
+        .popup{
+            
+            &__container{
+                width: 95vw;
+
+            }
+        }
+
+    }

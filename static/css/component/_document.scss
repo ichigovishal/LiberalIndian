@@ -1,0 +1,80 @@
+// document layout property
+.document{
+    &__body{
+        height: 100%;
+        width: 100%;
+        padding: 5px 10px;
+
+    }
+}
+// document edit properties
+.document__property{
+    &-col{
+        &-b{
+            color: black;
+        }
+        &-r{
+            color: red;
+        }
+        &-y{
+            color: yellow;
+        }
+    }
+    &-align{
+        &-left{
+            text-align: left;
+        }
+        &-right{
+            text-align: right;
+        }
+        &-center{
+            text-align: center;
+        }
+        &-justify{
+            text-align: justify;
+        }
+    }
+    &-size{
+        &-l{
+            font-size: 35px
+        }
+        &-md{
+            font-size: 20px
+        }
+        &-s{
+            font-size: 15px
+        }
+    }
+
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,88 @@
+@keyframes leftToRight{
+    0%{
+        transform: translateX(-2rem);
+    }
+    70%{
+        transform: translateX(5rem);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
+
+@keyframes rightToLeft{
+    0%{
+        transform: translateX(2rem);
+    }
+    70%{
+        transform: translateX(-5rem);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
+
+@keyframes showItem{
+    0%{transform: translateX(0);
+    background-position-x: 0;
+    color: white;}
+    50%{transform: translateX(3rem);
+        background-position-x: 50%;
+        color: cadetblue;}
+    100%{transform: translateX(0);
+         background-position-x: 0;
+         color: white;}
+}
+#move-discuss-panel div{
+    align-self: center;
+}
+@keyframes moveup{
+    0%{
+        transform: translateY(0);
+
+    }
+    50%{
+        transform: translateY(15px);
+
+    }
+    100%{
+        transform: translateY(0);
+
+    }
+}
+
+@keyframes movedown{
+    0%{
+        transform: translateY(0);
+
+    }
+    50%{
+        transform: translateY(15px);
+
+    }
+    100%{
+        transform: translateY(0);
+
+    }
+}
+#expandTopToBottom{
+    height: 180px;
+    
+}
+#boxShadow{
+    box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, 0.2);
+
+}
+#addRadiusBorder{
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+}
+#displayBlock{
+    display: block;  
+}
+#toolbar-animation{
+    width: 250px;
+}
+#toolbtn-animation{
+    background-color:  rgba(39, 25, 25, 0.925);
+}

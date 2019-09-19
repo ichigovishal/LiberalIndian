@@ -1,0 +1,268 @@
+.loginSignUp{
+    &{position: relative;
+        height: 100vh;
+        width: 100vw;
+    }
+    &__body{position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);      
+    }
+    &__wrapper{
+        display: inline-block;
+        height: auto;
+        width: 100%;
+        background-color: $officalLeafyBackground;
+        text-align: center;
+        text-transform: capitalize;
+        font-family: $Raleway;
+    }
+    &__logoContainer{
+        height: 32%;
+    }
+    &__logo{
+        display: inline-block;
+        height: 15vmin;
+        margin: 3rem 0;
+        border-radius: 8px; 
+        // border: 5px $OfficialMetallicPink solid;
+        // border-top: 15px $OfficialMetallicPink solid;
+        // border-bottom: 15px $OfficialMetallicPink solid;
+        
+
+    }
+    &__divider{
+        display: inline-block;
+        height: 7.5px;
+        width: 100%;
+        border-radius:10px;
+        background-color: $OfficialMetallicPink;
+        margin: 1rem 0;
+    }
+    &__heading{
+        font-size: 5rem;
+        font-weight: 700;
+    }
+    &__resetPassword--heading{
+        font-size: 3.8rem;
+    }
+    &__subHeading{
+        font-size: 1rem;
+        font-weight: 300;
+        letter-spacing: 5px;
+        
+    } 
+    &__inputBox{
+        display: inline-block;
+            margin-top: 3rem;
+            position: relative;
+
+    }
+    &__input{
+        &,
+        &:focus,
+        &:-webkit-autofill{
+            display: inline;
+            all: unset;
+            background-color: transparent;
+            border: 1px rgba(255, 255, 255, 0.123) solid;
+            border-radius: 5px;
+            height: 30px;
+            // width: 100%;
+            text-align: inherit;
+            transition: all 0.5s;
+        }
+        &:-webkit-autofill{
+            background-color: $officialHid;
+
+        }
+        &::placeholder{
+            color: rgba(255, 255, 255, 0.466);
+            text-transform: capitalize;
+
+        }
+        &:focus{
+            height: 50px;
+            border: 1px white solid;
+            box-shadow: none;
+        
+        }
+        &--email{
+            &,
+            &:focus{text-transform: none;
+            }
+
+        }
+        &:-webkit-autofill{
+            &,
+            &:focus{text-transform: none;
+                
+            }
+
+        }
+    }
+    &__label{
+        opacity: 0;
+        position: absolute;
+        top: -20px;
+        left:8px;
+        z-index: 10;
+        padding: 0px 10px;
+        background-color: $officialHid;
+        transition: all 0.3s;
+        
+        
+    }
+    &__input:focus ~ &__label{
+        opacity: 1;
+    }
+    &__login{
+        &{
+            background-image: linear-gradient(0deg, $officalElementBackgroundDark  0%,  $officalElementBackgroundDark  68%, $OfficialMetallicPink 68%);
+            color: $officalFontDark;
+            margin: 10rem 20px;
+            border-radius: 8px;
+            box-shadow: 12px 12px 2px 1px $officalShadow;
+            padding:1rem;
+            // max-height: 95vh;
+        }
+       
+        &--hidden{
+            display: inline-block;
+            width: 100%;
+        }
+        &--createaccount{
+            &,
+            &:link,
+            &:visited,
+            &:active{
+                display: inline-block;
+                text-decoration: none;
+                color: rgba(199, 196, 226, 0.589);
+                font-weight: 500;
+                font-size: 1.4rem;
+                margin: 1.5rem 0;
+            }
+        }
+        
+    }
+    &__submit{
+        &,
+        &:hover,
+        &:active{
+            
+            margin-top: 2rem;
+            background-color: $OfficialMetallicPink;
+            color: inherit;
+        }
+
+    }
+    &__confirmEmail{
+        width: auto;
+        height: auto;
+        background-color: $officalLeafyBackground;
+      
+       
+        &--container{
+            display: inline-block;
+            background-image: linear-gradient(0deg, $officalElementBackgroundDark  0%,  $officalElementBackgroundDark  68%, $OfficialMetallicPink 68%);
+            color: white;
+            font-weight: 700;
+            box-shadow: 12px 12px 2px 1px $officalShadow;
+            letter-spacing: 5px;
+            margin: 2rem  1rem;
+            padding: 4rem 2rem;
+
+        }
+   
+    }
+ 
+    // For mobile
+    @media only screen and (max-width: 415px) {
+        &__login{
+            width: 95vw;
+            height: 95vh;
+            font-size: 3vmin
+            
+
+        }
+        &__logo{
+            height: 22rem;
+            
+    
+        }
+        &__heading{
+            font-size: 17vmin;
+        }
+        &__subHeading{
+            font-size: 2.2rem;
+            
+        }  
+        &__login{  
+            &--createaccount{
+                &,
+                &:link,
+                &:visited,
+                &:active{
+                    font-size: 2rem;
+                    margin: 3rem 0;
+                }
+            }
+        }
+        &__submit{
+            &,
+            &:hover,
+            &:active{
+                font-size: 3rem;
+                margin: 5rem 0;
+
+
+            }
+        }
+        &__input{
+
+            &,
+            &:focus{
+                width: 40rem;
+                font-size: 2.5rem;
+            }
+
+            &::placeholder{
+                font-size: 3rem
+            }
+        }
+        &__label{
+            font-size: 3rem;
+        }
+          // comfirm email
+        &__confirmEmail{
+            &--container{
+                width: 95vw;
+                margin: 0;
+      
+              }
+         
+        
+        }
+        
+
+    }
+ // signup
+    &__signUp{
+        &{
+            background-image: linear-gradient(0deg, $officalElementBackgroundDark  0%,  $officalElementBackgroundDark  68%, $OfficialMetallicPink 68%);
+            color: $officalFontDark;
+            margin: 10rem 20px;
+            border-radius: 8px;
+            box-shadow: 12px 12px 2px 1px $officalShadow;
+            padding:1rem;
+        }
+        &--fullName{
+            margin-top: 5px;
+           
+        }
+    }
+  
+
+}
+

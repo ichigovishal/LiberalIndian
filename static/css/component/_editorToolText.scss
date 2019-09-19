@@ -1,0 +1,152 @@
+.text{
+    &{
+        text-align: center;
+        padding: 3rem;
+        position: relative;
+        
+    }
+    &__title{
+        display: inline-block;
+        font-size: 12px;
+
+    }
+    &__fontSize{
+        &,
+        &:hover,
+        &:active{
+            display: inline-block;
+            font-family: $Cinzel;
+            white-space: nowrap;
+            color: rgba(238, 232, 232, 0.925);
+            margin-top: 0.5rem;
+            cursor: pointer;
+        }
+        &:hover{
+            color: rgb(255, 255, 255);
+
+        }
+     
+        
+    }
+    &__fontSize-l{
+        &,
+        &:hover,
+        &:active{
+            font-size: 30px;
+        }
+    }
+    &__fontSize-m{
+        &,
+        &:hover,
+        &:active{
+            font-size: 20px;
+
+        }
+    }
+    &__fontSize-s{
+        &,
+        &:hover,
+        &:active{
+            font-size: 12px;
+        }
+    }
+    &__color{
+        &{
+            text-align: center;
+            padding: 30px;
+            transition: all 1s;
+        }
+        &--display,
+        &--display:hover,
+        &--display:active{
+            display: inline-block;
+            height: 35px;
+            width: 135px;
+            background-color:rgba(39, 25, 25, 0.925);
+            border: 0.6mm solid rgb(39, 25, 25);
+            text-align: left;
+            padding: 2.5px;
+            margin-top: 1.5rem;
+            cursor: pointer;
+        }
+        &--col{
+            display: inline-block;
+            background-color: black;
+            height: 25px;
+            width: 25px;
+            
+        }
+        &--rgbd{
+            display: inline-block;
+            margin: 0 10px;
+            transform: translateY(-30%);
+        }
+    }
+    &__selectorBox{
+        display: inline-block;
+        background-color:rgba(39, 25, 25, 0.925);
+        height: 0;
+        width: 145px;
+        border-bottom-left-radius: 7px;
+        border-bottom-right-radius: 7px;
+        overflow-y: hidden;
+        transition: all 0.7s;
+        text-align: center;
+        padding: 0px;
+    
+    }
+    &__colors--box{
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-column-gap: 0px;
+        margin: 10px;
+        position: relative;
+    }
+    &__colors{
+        &,
+        &:hover{
+            height: 25px;
+            width: 25px;
+            background-color: white;
+            cursor: pointer;
+        }
+        &:hover,
+        &:active{
+            border: 0.2px solid black;
+        }
+    
+   
+    }
+    &__colors--input{
+        &,
+        &:focus{
+            margin: 10px 0;
+            width: 125px;
+            border: 1px solid rgb(61, 61, 65);
+            background: transparent;
+            height: 50px;
+            color: white;
+            font-size: 25px;
+            padding: 0 10px;
+        }
+        &-holder{
+            position: relative;
+        }
+
+        &-label{
+            position: absolute;
+            top: 0;
+            left: 10px;
+            z-index: 750;
+            background-color: rgba(39, 25, 25, 0.925);
+            transform: translateX(7px);
+            padding: 0 5px;
+        }
+        &-label:focus{
+            color: white;
+        }
+        
+
+    }
+    
+}

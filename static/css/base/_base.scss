@@ -1,0 +1,77 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    font-size: 1.7vmin;
+    scroll-behavior: smooth;
+    
+}
+body{
+   &{
+    font-family: $Comfortaa;
+    font-weight: 400;
+    font-size:1.6rem;
+    line-height: 1.7;
+    color: $officalFontLight; 
+    overflow-x: hidden;
+    background-color: $officalBackground;
+    overflow-block: hidden;
+    overflow-wrap: break-word;
+   }
+   &::-webkit-scrollbar {
+    width: 0.3em;
+   }
+
+   &::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px transparent;
+   }
+
+   &::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,0.466);
+    outline: 1px solid slategrey;
+    border-radius: 20px;
+  }
+}
+
+h1{
+    letter-spacing: 1.8rem;
+    text-transform: uppercase;
+    font-family: $Cinzel;
+
+    
+}
+h2{
+    letter-spacing: 1.8rem;
+    text-transform: uppercase;
+    font-family: $Cinzel;
+
+    
+}
+h3{
+    letter-spacing: 1.8rem;
+    text-transform: uppercase;
+    font-family: $Cinzel;
+
+    
+}
+p{
+     text-align: justify;
+     font-family: $Roboto;
+     
+}
+button,
+button:hover,
+button:active {
+    all: unset;
+ }
+ol {
+    list-style-type: decimal;
+    text-align: left;
+}
+ol li {
+    display: list-item;
+    list-style-position: inside;
+    padding-left: 4px;
+}

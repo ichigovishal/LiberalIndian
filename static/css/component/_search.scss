@@ -1,0 +1,206 @@
+.search{
+    &{
+        display: block;
+        text-align: center;
+        width: auto;
+        padding: 0;
+        white-space: nowrap;
+        
+        
+    }
+    &__box{
+        display: inline-block;
+        white-space: normal;
+        
+    }
+    &__input{
+        &,
+        &:focus,
+        &:hover{
+            display: inline-block;
+            outline:none;
+            background-color: rgba(255, 255, 255, 0.096);
+            border: none;
+            height: 40px;
+            width: 100%;
+            margin: 0;
+            padding: 5px 30px;
+            color: white;
+            font-size: 2rem;
+            
+            
+        }
+
+        
+    }
+    &__label{
+        display: inline-block;
+        height: 40px;
+        width: 40px;
+        background-image: $officalLeafyBackground;
+        padding:5px;
+        margin-bottom: 6px;
+        cursor: pointer;
+        & span{
+            display: block;
+            background-image: url(static("search/icons/search.ico"));
+            background-position: center;
+            background-size: contain;
+            height: 100%;
+            width: 100%;
+        }
+       
+
+    }
+    &__activeIndicater{
+        display: inline-block;
+        background-color: $OfficialMetallicPink;
+        height: 3px;
+        width: 0;
+        transition: all .5s;
+    }
+    &__input:focus ~ &__activeIndicater{
+        width: 100%;
+
+    }
+
+}
+// for desktop
+.indiginesSearch{
+ 
+    &__container{
+        position: fixed;
+        top: 45px;
+        left: 57%;
+       transform: translate(-50%, -50%);
+        z-index: 900;
+        
+    }
+    &__box{
+        width: 65vw;
+    }
+   
+    &__label{}
+    &__activeIndicater{}
+    @media only screen and (max-width: 1040px) {
+        &__BOX{
+            width: 59vw;
+        }
+    }
+
+}
+
+// for mobile
+.searchBar{
+    &{
+        position: fixed;
+        z-index: 1300;
+        top: 89px;
+        left: 0;
+        background-color: $officalLeafyBackground;
+        width: 100vw;
+        padding: 12px 0;
+        display: none;
+        
+    }
+    &__box{
+        width: 95vw;
+    }
+    &__input{
+        &::placeholder{
+            color: rgba(255, 255, 255, 0.767);
+            text-align: center;
+            letter-spacing: px;
+            text-transform: capitalize;
+        }
+        &:focus ~ &::placeholder{
+            color: white;
+        }
+    }
+   
+}
+@media only screen and (max-width: 800px) {
+    .searchBar{
+        display: block;
+    }
+    .indiginesSearch__container{
+        display: none
+    }
+}
+.search{
+    &__body{
+        margin: 0 10px;
+        margin-top: 100px;
+        margin-bottom: 50px;
+        text-align: center;
+        
+    }
+    &__item{
+        &{
+            display: inline-block;
+            margin: 30px 10px;
+            width: 300px;
+            height: auto;
+            box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, 0.2);
+            color: white;
+            background-image: linear-gradient(to top, $officalLeafyBackground, $officalLeafyBackground), linear-gradient(to top, $officalElementBackgroundDark, $officalElementBackgroundDark);
+            padding: 0 10px;
+            border-radius: 7.5px;
+            position: relative;
+        }
+        &--indentifier{
+            position: relative;
+            background-color: $metallic-red;
+            padding: 3px 30px;
+            box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, 0.2);
+
+
+        }
+
+        &--heading{
+            font-size: 1.8rem;
+            font-family: $Raleway;
+            letter-spacing: 0;
+            margin: 30px 0;
+            margin-bottom: 15px;
+        }
+        &--divider{
+            text-align: right;
+            height: auto;
+            font-size: .7rem;
+            text-transform: capitalize;
+            padding: 2px 20px;
+
+        }
+        &--article{
+            margin: 40px 0;
+            margin-bottom: 20px;
+            padding: 0 20px;
+            letter-spacing: 0px;
+            text-align: left;
+            font-size: 1.3rem;
+
+        }
+        
+    }
+    &__typeIndicator{
+        position: absolute;
+        background-color: $metallic-red;
+        display: inline-block;
+        padding: 0 30px;
+        border-radius: 5px;
+        transform: translate(0, -50%);
+        box-shadow: 7px 7px 2px 1px rgba(0, 0, 0, 0.2);
+        text-transform: uppercase;
+        top: 0;
+        left: 10px;
+        font-size: 10px;
+    }
+    @media only screen and (max-width: 800px) {
+        
+        &__body{
+            margin-top: 150px;
+        }
+        
+    }
+}

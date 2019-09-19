@@ -1,0 +1,61 @@
+.bar{
+    z-index: 1300;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: $officalBackground;
+    width: 100%;
+ }
+
+
+.bar__logo{  
+    background-size: cover;
+    background-position: top;
+    height: 60px;
+    z-index: inherit;
+    border-top-right-radius: 2px; 
+    border-bottom-right-radius: 2px; 
+    margin: 7px 0;
+    border-right: 30px $OfficialMetallicPink solid;
+    
+
+}
+
+.bar{
+    &__searchLocal{
+       &{
+        position: fixed;
+        z-index: 1400;
+        top: 18.5px;
+        left: 90%;
+        transform: translateX(-100%);
+        background: transparent;
+       }
+       &--logo{
+           display: block;
+           height: 40px;
+           width: 40px;
+           background-position: center;
+           background-size: contain;
+           background-image: url(static("basic/icons/search.ico"));
+           transition: all 0.2s;
+       }
+    
+       &:hover > &--logo{
+        height: 42px;
+        width: 42px;
+
+       }
+       @media only screen and (max-width: 770px) {
+           &{
+               left: 84%;
+           }
+       }
+       @media only screen and (max-width: 430px) {
+        &{
+            left: 80%;
+        }
+    }
+    }
+
+}

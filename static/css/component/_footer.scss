@@ -1,0 +1,71 @@
+.footer{
+    &{
+        display: block;
+        height: auto;
+        width: 100%;
+        background-color: $officalLeafyBackground;
+        color: white;
+        text-align: center;
+     
+    }
+    
+    &__aboutUs{
+        display: inline-block;
+        margin-top: 30px;
+        margin-bottom: 10px;
+
+    }
+    &__icon{
+       &{
+        display: inline-block;
+        height: 3.5rem;
+        width: 3.5rem;
+        margin: 3rem 3.6rem;
+        margin-bottom: 2.2rem;
+        background-size: contain;
+        background-position: center;
+        cursor: pointer;
+
+       }
+       &--facebook{
+           background-image: url(static("basic/icons/facebook.ico"));
+       }
+       &--instagram{
+           background-image: url(static("basic/icons/instagram.png"));
+       }
+       &--twitter{
+        background-image: url(static("basic/icons/twitter.png"));
+       }
+       
+    }
+    &__heading{
+        font-size: 2.2rem;
+        letter-spacing: 10px;
+        text-transform: uppercase;
+        
+    }
+       
+    
+    &__subFooter{
+        text-transform: capitalize;
+        font-size: .5rem;
+        letter-spacing: 2px;
+
+    }
+    &__flaticon{
+        &,
+        &:link,
+        &:visited,
+        &:hover{
+            color: rgba(255, 255, 255, 0.726);
+        }
+
+    }
+    // For mobile
+@media only screen and (max-width: 415px) {
+    &__subFooter{
+        font-size: 1rem;
+    }
+}
+
+}

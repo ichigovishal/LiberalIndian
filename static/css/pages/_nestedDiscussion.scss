@@ -1,0 +1,45 @@
+.nestedDiscussion{
+    &{
+        position: relative;
+        text-align: center;
+    }
+    &__body{
+        display: inline-block;
+        position: absolute;
+        transform: translate(-50%, 0);
+        top: 60px;
+        left: 40%;
+        width: 70vw;
+    }
+    &__collective{
+        display: block;
+        height: auto;
+        width: 100%;
+        background-color: $officalLeafyBackground;
+        margin-bottom: 10rem;
+    }
+    &__item{
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    &__mainDiscuss{
+
+    }
+    &__arrow{
+        display: inline-block;
+        width: 5px;
+        height: 50px;
+        border-radius: 5px;
+        background-color: $OfficialMetallicPink;
+    }
+    &__relatedDiscuss{
+        display: inline-block;
+        width: 90%;
+    }
+    @media only screen and (max-width: 415px) {
+        &__body{
+            width: 100vw;
+            left: 50%;
+        }
+    }
+}

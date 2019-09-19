@@ -1,0 +1,43 @@
+.errorPage{
+    &{position: relative;
+        height: 100vh;
+        width: 100vw;
+    }
+    &__body{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); 
+    } 
+    &__wrapper{
+        display: inline-block;
+        height: auto;
+        width: 100%;
+        background-color: $officalLeafyBackground;
+        text-align: center;
+        text-transform: capitalize;
+        font-family: $Raleway;
+        color:  white;
+        padding: 18rem 10rem;
+        letter-spacing: 5px;
+    }
+    &__image{
+        display: inline-block;
+        height: 300px;
+        width: 300px;
+        margin: 10px 0;
+    }
+    @media only screen and (max-width: 415px) {
+        &__wrapper{
+            width: 95vw;
+            font-size: 3vmin
+            
+
+        }
+        &__image{
+            display: inline-block;
+            height: 16rem;
+            width: 16rem;
+        }
+    }
+}

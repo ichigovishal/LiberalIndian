@@ -1,0 +1,218 @@
+.contactUs{
+    &{
+
+    }
+    &__container{       
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        background-color: $white-creamy-background;
+        padding: 3rem 1rem;
+        text-align: center;
+        position: relative;
+        
+    }
+    &__mainBreaker{
+        display: none;
+    }
+    &__direct{
+        display: inline-block;
+        font-family: $Raleway;
+        text-align: left;
+        grid-column: 1/2;
+        align-self: left;
+        padding: 3rem;
+    }
+    &__heading{
+        font-size: 3rem;
+        white-space: nowrap;
+        letter-spacing: 1rem;
+        font-family: inherit;
+        padding: 0 3rem;
+        color: black;
+        text-transform: capitalize;
+        &-md{
+            padding: 0 0rem;
+            font-size: 2rem;
+            font-weight: 500;
+        }
+        &-sm{
+            padding: 0 0rem;
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: 0;
+        }
+    }
+    &__subheading{
+        font-size: 0.9rem;
+        padding: 0 3rem;
+        &-md{
+            padding: 0 0rem;
+            font-size: 1.5rem;
+        }
+    }
+    &__input{
+        &{
+            &,
+            &:hover,
+            &:focus{
+            display: inline-block;
+            height: 4rem;
+            background-color: white;
+            text-transform: capitalize;
+            text-align: left;
+            font-family: inherit;
+            border: none;
+            margin: .8rem .5rem;
+            width: 80%;
+            padding: 0rem 2.5rem;
+            }
+            &:focus{
+                width: 80%;
+                padding: 0rem 2.5rem;
+                background-color: white;
+                height: 6rem;
+                border: 0.6px $OfficialMetallicPink solid;
+
+            }
+            
+        }
+        &::placeholder{
+            color: $input-black;
+            letter-spacing: .4rem;
+            text-align: left;
+            text-transform: capitalize;
+        }
+        &--name{
+            &,
+            &:hover,
+            &:focus{
+                margin-top: 3rem;
+            }
+        }
+        &--email{
+            &,
+            &:hover,
+            &:focus{
+            text-transform: none;
+            }
+            &::placeholder{
+                
+            }
+            &:focus{
+                text-transform: none;
+
+            }
+        }
+        &--text{
+           &,
+           &:hover,
+           &:focus{
+            height: 12rem;
+            text-transform: none;
+            padding: 2rem 2.5rem;
+            resize: none;
+            text-overflow: clip;
+           }
+           &:focus{
+            height: 15rem;
+
+           }
+        }
+    }
+    &__button{
+        &,
+        &:hover,
+        &:active{
+            padding: 1.5rem 5rem;
+        }
+    }
+    &__body > span{
+        white-space: nowrap;
+    }
+   
+    &__detail{
+        display: inline-block;
+        font-family: $Raleway;
+        text-align: left;
+        grid-column: 2/3;
+        align-self: left;
+        padding: 3rem 0rem;
+    }
+    &__address{
+        margin: 3rem 0rem;
+        & p{
+            font-size: 1.5rem;
+            text-decoration: none;
+            text-transform: capitalize;
+        }
+    }
+
+    @media only screen and (max-width: 1000px){
+        &__container{
+            display: block;
+        }
+        &__mainBreaker{
+            display: inline-block;
+        }
+        &__direct{
+            border-bottom: .5px rgba(0, 0, 0, 0.39) solid;
+        }
+    }
+    @media only screen and (max-width: 415px){
+        &__direct{
+            width: 95vw;
+        }
+        &__detail{
+            position: relative;
+        }
+    }
+    &__popup{
+        &{
+           &{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+           }
+           &--container h1{
+               padding: 50px 10px;
+               font-size: 1.7rem;
+               font-family: $Raleway;
+               letter-spacing: 3px;
+               text-transform: capitalize;
+           }
+        }
+        &::before{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            height: 100vh;
+            width: 100vw;
+        }
+    }
+    @media only screen and (max-width: 1000px){
+        &__container{
+            position: unset;
+        }
+        &__direct{
+            position: relative;
+        }
+        &__popup{
+            &{
+               &{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+               }
+               &--container{
+                   width: 50vw;
+               }
+
+            }
+            &::before{
+                height: 100vh;
+                width: 100vw;
+            }
+        }
+    }
+     
+}
